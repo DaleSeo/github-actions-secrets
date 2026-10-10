@@ -17,6 +17,11 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           echo "API_KEY: $API_KEY"
+      - name: 시크릿이 있을 때만 실행
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        if: env.SLACK_WEBHOOK != ''
+        run: echo "슬랙으로 알림을 보냅니다."
 
   deploy:
     needs: build
