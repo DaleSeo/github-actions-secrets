@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 변수 읽기
+        env:
+          APP_NAME: ${{ vars.APP_NAME }}
         run: |
-          echo "APP_NAME: ${{ vars.APP_NAME }}"
-          echo "LOG_LEVEL: ${{ vars.LOG_LEVEL }}"
+          echo "APP_NAME: $APP_NAME"
       - name: 시크릿 읽기
         env:
           API_KEY: ${{ secrets.API_KEY }}
