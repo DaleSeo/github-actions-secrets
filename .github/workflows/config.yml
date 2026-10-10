@@ -11,8 +11,10 @@ jobs:
       - name: 변수 읽기
         env:
           APP_NAME: ${{ vars.APP_NAME }}
+          LOG_LEVEL: ${{ vars.LOG_LEVEL }}
         run: |
           echo "APP_NAME: $APP_NAME"
+          echo "LOG_LEVEL: $LOG_LEVEL"
       - name: 시크릿 읽기
         env:
           API_KEY: ${{ secrets.API_KEY }}
